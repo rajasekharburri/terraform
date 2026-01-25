@@ -1,0 +1,26 @@
+Infra as a code
+===============
+Version control we can use terraform.
+Automatic CRUD(create,read,update,delete) operations we can do.
+Consistent infra -> DEV, QA, UAT, PRE-PROD, PERF, PROD
+Inventory -> What are the services we are using in cloud
+Cost optimisation
+Time saving and no human errors
+Dependency -> SG, EC2 and then R53
+Modular reusable infra
+
+
+1. Terraform
+2. AWS CLI V2
+
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+
+
+
+
+
+terraform init -> downloads the provider, intialise terraform
+terraform plan -> It will give us a plan that what it is going to do
+terraform apply -> creates the infra as given in the plan
+terraform apply -auto-approve
+terraform destroy -auto-approve

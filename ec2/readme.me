@@ -1,0 +1,32 @@
+sytax(or) hcl syntax:
+--------------------
+
+{
+	key = "value"
+}
+
+resource "aws_instance" "name-of-resource" {
+	
+	ami = ""
+	name = ""
+	storage = ""
+	key = ""
+	instance_type = ""
+
+}
+
+resource "type_of_resource" "name-of-resource" {
+	
+	key = value
+	
+}
+
+--------------------------------------------------------------
+---------------------------------------------------------------
+terraform init -> downloads the provider, intialise terraform
+terraform plan -> It will give us a plan that what it is going to do
+terraform apply -> creates the infra as given in the plan
+terraform apply -auto-approve
+terraform destroy -auto-approve
+
+VAR_NAME="VALUE
