@@ -1,0 +1,16 @@
+conditions:
+----------
+usally condtions we write:
+
+if(expression){
+    this is will run if expression is true
+}
+else {
+    this expression will run if expression is false
+}
+
+In terraform they wrote like this
+
+ expression ? "this will run if true" : "this is will run if false"
+  example:
+      instance_type = var.environment == "dev" ? "t3.micro" : "t3.medium"

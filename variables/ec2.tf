@@ -11,7 +11,7 @@ resource "aws_security_group" "allow_all" {
   egress {
     from_port        = var.egress_from_port
     to_port          = var.egress_to_port
-    protocol         = "-1" # -1 means all protocols
+    protocol         = "-1" # -1 means all protocols  #-1 is string because it is " " (quotes)
     cidr_blocks      = var.cidr
   }
 
@@ -37,8 +37,8 @@ resource "aws_security_group" "allow_all" {
 # resource "aws_instance" "terraform" {
 #     ami = "ami-09c813fb71547fc4f"
 #     instance_type = "t3.micro"
-#     vpc_security_group_ids = [aws_security_group.allow_all.id]
-#     tags = {
+#     vpc_security_group_ids = [aws_security_group.allow_all.id]    ##[aws_security_group.example.id] ## list
+#     tags = {                       ## map
 #         Name = "terraform"
 #         Terraform = "true"
 #     }
@@ -66,3 +66,16 @@ resource "aws_security_group" "allow_all" {
 #   }
 
 # }
+
+
+
+#####################
+# BASIC SYNTAX
+###################
+
+# variable "ami-id{
+#   default ="ami-0220d79f3f480ecf5"
+# }
+#  variable "instance_type" {
+#   default = "t3.micro"
+#  }

@@ -1,0 +1,27 @@
+Variable
+---------
+DRY concept
+x=1 and y = 2
+
+SYNTAX
+-----
+variable "variable_name" {
+    default = "value-of-variable"
+}
+var.variable_name
+
+
+note:
+1. command line variables values have first preferences 
+
+example: In terraform varibles we refer as terraform plan -var "variable_name=value" 
+       example:-   teraaform plan -var "instances_type=t3.small"
+
+
+2.terraform.tfvars file is used to define input variables for a terraform configuration (varible name should be same) 
+
+3.terraform env variables
+syntax:-
+       export TF_VAR_instances_type="t3.large"
+4.default.value
+5.finally prompt

@@ -16,7 +16,20 @@ Modular reusable infra
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 
+note:
+1. command line variables values have first preferences 
 
+example: In terraform varibles we refer as terraform plan -var "variable_name=value" 
+       example:-   teraaform plan -var "instances_type=t3.small"
+
+
+2.terraform.tfvars file is used to define input variables for a terraform configuration (varible name should be same) 
+
+3.terraform env variables
+syntax:-
+       export TF_VAR_instances_type="t3.large"
+4.default.value
+5.finally prompt
 
 
 terraform init -> downloads the provider, intialise terraform
@@ -24,3 +37,13 @@ terraform plan -> It will give us a plan that what it is going to do
 terraform apply -> creates the infra as given in the plan
 terraform apply -auto-approve
 terraform destroy -auto-approve
+
+terrform will execute the .tf file from alphabetical order.
+
+.git need to remove
+rm -rf .git
+
+git init
+git branch -M main
+gut remote add origin <url>
+git add . ; git commit ; git push

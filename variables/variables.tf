@@ -1,6 +1,6 @@
 variable "ami_id" {
     type = string
-    default     = "ami-09c813fb71547fc4f"
+    default     = "ami-0220d79f3f480ecf5"
 }
 
 variable "instance_type" {
@@ -21,7 +21,7 @@ variable "ec2_tags" {
 variable "sg_name" {
     type = string
     default = "allow-all"
-    # optional to inform what is this variable about
+     # optional to inform what is this variable about
     description = "Security Group Name to attach to EC2 instance"
 }
 
