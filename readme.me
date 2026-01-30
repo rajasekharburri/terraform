@@ -47,3 +47,49 @@ git init
 git branch -M main
 gut remote add origin <url>
 git add . ; git commit ; git push
+
+
+for loop is used map,if only list is there need to convert into toset
+
+list is there means use count
+key value pair is there means use for loop
+
+
+data sources ami terraform 
+----------------------
+we are creating resources in provider
+
+we can query the existing information using data sources
+
+syntax:
+data "aws_ami" "example"
+
+
+resources means create 
+Data means It gives the data that already exists
+
+funtions
+--------------
+function means takes input and returns output
+terraform functions are built -in freature
+
+
+-> toset(["mysql","backend"])
+result 
+     toset([
+       "backend",
+       "mysql",
+     ])
+
+->  length (["siva","kumar","m"])
+result-> "siva kumar m"
+
+spilt (" ", "siva kumar m ")
+result-> tolist([
+       "siva",
+       "kumar",
+       "m"
+])
+
+merge functions
+---------------
