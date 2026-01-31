@@ -56,7 +56,7 @@ key value pair is there means use for loop
 
 
 data sources ami terraform 
-----------------------
+==========================
 we are creating resources in provider
 
 we can query the existing information using data sources
@@ -69,9 +69,9 @@ resources means create
 Data means It gives the data that already exists
 
 funtions
---------------
+===============
 function means takes input and returns output
-terraform functions are built -in freature
+terraform functions are built -in feature
 
 
 -> toset(["mysql","backend"])
@@ -92,4 +92,141 @@ result-> tolist([
 ])
 
 merge functions
----------------
+===============
+also called union
+
+{
+       a = b
+       c = d
+       x = y
+},
+{
+ a =b 
+ c= e
+ }
+
+ a=b
+ c=e
+ x=y 
+ 
+
+
+ state 
+===============
+
+ *** terraform state is used to match the desired infra with actual infra, when create read update and delete the infra terraform uses this state file to acheive the 
+ desired infra for comparison. It is like memory to terraform
+
+ *** terraform locks the state file when terraform is running
+
+ whatever we give in .tf files, it should create those resources -> declarative way of creating infra
+
+ matching you declared infra with actual infra in AWS account
+
+ state file -> terraform uses this file to track what it created
+
+ 1. tf files -> expectation or desired or declared
+ 2. actual infra -> reality or existing
+ 3 . state -> for comparison
+
+ first time
+ ===============
+ if no state file -> new or first time
+ if created -> .tfstate
+
+ 2nd time
+ ===============
+ aws_security_group.allow_all: Refreshing state... 
+
+ it will compare actual infra vs state file
+
+ nothing to change
+
+ manually delete in the console
+ =================
+ refreshing state
+
+ whatever in state file, it is exist in AWS account or not?
+
+ then someone outside of terraform did something..
+ 
+ I changed in tf files
+ ====================
+ refreshing state
+
+ state == actual infra
+
+ desired infra != actual infra
+
+ when I removed something
+=====================
+refreshing state
+
+state == actual infra
+
+desired infra != actual infra
+
+deleted in actual infra
+updated in state file
+
+
+Remote state
+==============
+state is used by terraform. usually we should not touch state file. 
+
+We should secure state file from accidental changes.
+
+1st person completed infra, state is in his local..
+
+2nd person want to do changes, 
+
+if second person he initialize terraform, he will plan and he will apply
+
+--> 1. either duplicate resources
+
+--> 2. error while creating resources saying that already exists
+
+what is the solution for storing the code when multiple person are working?
+--> we must keep state file in remote location while working in collaboration environment for 
+    security and preventing duplicate resources and errors when multiple members are working together
+
+if multiple person are working at same time what we can do?
+
+state file should be locked when terraform is doing something, so that other person can't apply the changes.
+
+locals
+=======
+locals are like variables but it has many extra capabilities
+1. variables can be overridden, locals can't be overridden
+2. you can use variables inside locals. but we can't use one variable in another variable
+3. you can store expressions or functions inside locals block and reuse them whenever required
+
+mysql catalogue cart user
+
+roboshop-catalogue
+roboshop-dev-catalogue
+roboshop-qa-catalogue
+
+dynamic block
+==============
+
+if one block is repeated to many times we use block 
+
+loops inside terraform
+	count based
+	for_each
+	dynamic
+	
+
+
+Provisioners 
+=============
+usually Provisioners means moving one state to another state.
+
+terraform is creating instance, if we want to configure terraform is allowing to run few scripts
+
+1. local-exec
+2. remote-exec
+
+
+
