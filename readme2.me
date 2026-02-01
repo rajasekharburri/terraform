@@ -49,13 +49,15 @@ override the default values of the variables
 
 DEV and PROD
 
+in terraform everything is fix , we can change only values.
+
 tags
 =====
 common tags
 	Project = Roboshop
 	Terraform = true
 
-seperate tags
+separate tags
 	component = catalogue
 	Environment = dev/prod
 	
@@ -69,3 +71,39 @@ maintain different repos for different environments
 ================================
 roboshop-infra-dev
 roboshop-infra-prod
+
+Modules development
+===================
+if separate code for each component, there is no single point of control
+
+--> If there is version change, we need to update in all components
+--> There are no common standards for all the projects
+--> Maintenance and update is very tough
+
+module advantages
+=================
+1. changes at single place cascade to all components using that module -> centralised approach
+2. we can implement industry best standards in the module, all other components are forced to use. better for governance, compliance and auditing
+3. code reuse
+
+
+terraform naming conventions
+===========================
+terraform naming convention
+===========================
+sivakumar_reddy_m -> for programs
+
+sivakumar-reddy-m -> for humans
+
+human ramesh
+ramesh
+
+catalogue-instance -> resource type should not be used in resource names
+id -> string
+ids -> list
+
+module "module-name" {
+
+	source = ""
+	mandatory-variables
+}
